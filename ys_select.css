@@ -1,14 +1,15 @@
 body {
-  font: 100% Helvetica, sans-serif;
-  color: #333;
-  background-color: blue;
+  background-color: #D7D7D7;
 }
 
-.asc {
-  font-size: 12px;
-  color: yellow;
+#layout0a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #DDFCF7;
+  min-height: 600px;
 }
 
-.asc li {
-  padding: 10px;
+#layout0a #layout0b {
+  background-color: #F7D586;
 }
