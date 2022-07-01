@@ -175,8 +175,16 @@ body {
 
 @media (max-width: 750px) {
   #comp_bottombar_mobile {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
+}
+
+#comp_bottombar_mobile .btnm {
+  background-color: #53ff1a;
+  width: 25%;
+  margin: 2px;
 }
 
 #comp_flymenu_mobile {

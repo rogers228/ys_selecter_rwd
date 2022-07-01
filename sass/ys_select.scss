@@ -165,8 +165,16 @@ body {
   width: 100%;
   height: $mobile_bottombar_height;
   @include mobile{
-    display:block;
-  }  
+    display: flex;
+    flex-direction: row; //主軸方向 水平
+    justify-content: space-around; //主軸對齊 flex-start | flex-end | center | space-between | space-around;    
+  }
+
+  .btnm{
+    background-color: #53ff1a;
+    width: 25%;
+    margin: 2px;
+  }
 }
 
 #comp_flymenu_mobile{
