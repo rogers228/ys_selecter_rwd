@@ -1,0 +1,183 @@
+@import 'variable';
+
+// mobile
+@mixin mobile{
+  @media(max-width:750px){ //<= 750
+    @content;
+  }
+}
+
+body {
+  margin: 0;  
+  background-color: $color_body;
+}
+
+#layout0a{
+  display: flex;
+  flex-direction: row; //主軸方向 水平
+  justify-content: center; //主軸對齊 flex-start | flex-end | center | space-between | space-around;
+  background-color: #DDFCF7;
+  min-height: 600px;
+  // height: 100%;
+
+  #layout0b{
+    position: absolute;
+    background-color: #F7D586;
+    width:$main_width;
+
+    @include mobile{
+      width:100%;
+    }
+
+  }
+}
+
+.layout1{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#layout1_1{
+  background-color: #f2e6ff;
+}
+#layout1_2{
+  background-color: #F1EFB5;
+}
+#layout1_3{
+  background-color: #D5A8FF;
+}
+#layout1_4{
+  background-color: #BFFCC7;
+}
+
+#layout2_header{
+  background-color: #ffbf00;
+  min-height: 100px;
+
+  @include mobile{
+    display:none;
+  }
+
+  #layout3_userbar{
+    position: absolute;
+    display: flex;
+    flex-direction: row; //主軸方向 水平
+    justify-content: flex-end; //主軸對齊 flex-start | flex-end | center | space-between | space-around; 
+    background-color: transparent;
+    top:0;
+    width:100%;
+
+    @include mobile{
+      display:none;
+    }
+
+    #comp_userbar_browser{
+      background-color: #99cc00;
+      min-width: 450px;
+    }
+
+  }
+}
+#layout2_center{
+  background-color: #ccffcc;
+  display: flex;
+  flex-direction: row; //主軸方向 水平
+  justify-content: flex-start; //主軸對齊 flex-start | flex-end | center | space-between | space-around;
+  align-items: stretch; //次軸對齊 flex-start | flex-end | center | baseline | stretch;
+  min-height: 150px;
+
+  #layout3_sider{
+    background-color: #d0e1e1;
+
+
+    #comp_sider{
+      background-color: #006699;
+      width:300px;
+
+      @include mobile{
+        width:0px;
+        display:none;
+      }
+
+    }
+  }
+
+  #layout3_main{
+    background-color: #ff9999;
+    width: calc(#{$main_width} - 300px);
+
+    @include mobile{
+      width: 100%;
+    }
+
+    #comp_nvabar{
+      background-color: #b3b300;
+      width: 100%;
+      @include mobile{
+        display:none;
+      }
+    }
+    #comp_selecter{
+      background-color: yellow;
+      width: 100%;
+
+    }    
+  }
+}
+#layout2_footer{
+  background-color: #4d4d4d;
+  min-height: 100px;
+
+  @include mobile{
+    display:none;
+  }
+}
+
+
+#layout_sidebar_browser{
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  height: 100%;
+  
+  @include mobile{
+    display:none;
+  }
+
+  #comp_sidebar_browser{
+    background-color: #53ff1a;
+    width: 36px;
+    height: 120px;
+    margin-top: $browser_sidebar_top;
+  }
+}
+
+#comp_bottombar_mobile{
+  display:none;
+  position: fixed;
+  background-color: #178A7D;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: $mobile_bottombar_height;
+  @include mobile{
+    display:block;
+  }  
+}
+
+#comp_flymenu_mobile{
+  display:none;
+  position: fixed;
+  background-color: #ff0066;
+  left: 0;
+  top: 0;  
+  width: 300px;
+  height: calc(100% - #{$mobile_bottombar_height});
+  @include mobile{
+    display:block;
+  }    
+}
