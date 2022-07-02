@@ -8,7 +8,7 @@
 }
 
 body {
-  margin: 0;  
+  margin: 0;
   background-color: $color_body;
 }
 
@@ -178,14 +178,40 @@ body {
 }
 
 #comp_flymenu_mobile{
-  display:none;
+  display: none;
   position: fixed;
   background-color: #ff0066;
   left: 0;
   top: 0;  
   width: 300px;
   height: calc(100% - #{$mobile_bottombar_height});
+
   @include mobile{
-    display:block;
+    display: block;
+    // visibility: hidden;
+    left: -300px;
   }    
+}
+
+.menu_visible{
+  visibility: visible;
+  left: 0px;
+}
+
+.menu_flyin{
+  animation: flyin 0.5s ease-out;
+}
+
+.menu_flyout{
+  animation: flyout 0.5s ease-in;
+}
+
+@keyframes flyin {
+    from {left: -300px;}
+    to   {left: 0px;} 
+}
+
+@keyframes flyout {
+    from {left: 0px;}
+    to   {left: -300px;} 
 }

@@ -200,5 +200,37 @@ body {
 @media (max-width: 750px) {
   #comp_flymenu_mobile {
     display: block;
+    left: -300px;
+  }
+}
+
+.menu_visible {
+  visibility: visible;
+  left: 0px;
+}
+
+.menu_flyin {
+  animation: flyin 0.5s ease-out;
+}
+
+.menu_flyout {
+  animation: flyout 0.5s ease-in;
+}
+
+@keyframes flyin {
+  from {
+    left: -300px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes flyout {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -300px;
   }
 }
