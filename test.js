@@ -12,6 +12,7 @@ function test1(){
                 // return JSON.parse(xhr.responseText);
                 let json_data = JSON.parse(xhr.responseText);
                 console.log(json_data)
+                alert(json_data['message']);
             }
             else{
                 console.log('error! myurl:'+ myurl);
