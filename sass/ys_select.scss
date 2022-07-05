@@ -1,8 +1,12 @@
 @import 'variable';
 
+:root{ 
+  --data-mobile_width: #{$mobile_width};
+}
+
 // mobile
 @mixin mobile{
-  @media(max-width:750px){ //<= 750
+  @media(max-width: $mobile_width){ //<= 750
     @content;
   }
 }
