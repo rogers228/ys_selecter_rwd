@@ -1,7 +1,7 @@
 function test1(){
     console.log('test1');
 
-    let myurl = 'http://yshr.asuscomm.com/pdwh/machine_ys_1____en';
+    let myurl = 'https://yshr.asuscomm.com:8239/';
     console.log('myurl:'+myurl);
 
     let xhr = new XMLHttpRequest();
