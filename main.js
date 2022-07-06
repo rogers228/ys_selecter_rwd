@@ -37,6 +37,7 @@ function test2(){
 
     let xhr = new XMLHttpRequest();
         xhr.open('get',myurl, true);
+        xhr.timeout = 5000; //毫秒
         xhr.send(null);
         xhr.onload = function(){
             tester.innerHTML = 'xhr.onload';
@@ -52,5 +53,10 @@ function test2(){
                 console.log('error! myurl:'+ myurl);
             }
         }
+        xhr.ontimeout = function(){
+            console.log('XMLHttpRequest is timeout!');
+            tester.innerHTML = json_data['message'];
+        }
+
     tester.innerHTML = 'ok';
 }
