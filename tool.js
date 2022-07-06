@@ -95,3 +95,60 @@ class Flymenu{
         }
     }
 }
+
+function Mobile_touch(){  //Class
+    let startx = 0;
+    let starty = 0;
+    let endx = 0;
+    let endy = 0;
+
+    function getAngle(angx, angy) { //獲得角度
+        return Math.atan2(angy, angx) * 180 / Math.PI;
+    }
+
+    function getDirection(startx, starty, endx, endy) {
+        //根據起點終點返回方向 1向上滑動 2向下滑動 3向左滑動 4向右滑動 0點選事件
+        let result = 0;
+        let angx = endx - startx;
+        let angy = endy - starty;
+        //如果滑動距離太短
+        if (Math.abs(angx) < 2 && Math.abs(angy) < 2) {
+            return result;
+        }
+
+        let angle = getAngle(angx, angy);
+        if (angle >= -135 && angle <= -45) {
+            result = 1; //向上
+        } else if (angle > 45 && angle < 135) {
+            result = 2; //向下
+        } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+            result = 3; //向左
+        } else if (angle >= -45 && angle <= 45) {
+            result = 4; //向右
+        }
+        return result;
+    }
+
+    ;(function addevent(){
+        //手指接觸螢幕
+        document.addEventListener("touchstart", function(e){
+            startx = e.touches[0].pageX;
+            starty = e.touches[0].pageY;
+        }, false);
+
+        //手指離開螢幕
+        document.addEventListener("touchend", function(e) {
+            endx = e.changedTouches[0].pageX;
+            endy = e.changedTouches[0].pageY;
+            // console.log(startx, starty, endx, endy);
+            let direction = getDirection(startx, starty, endx, endy);
+            if (direction ==3){ //向左
+                let flymenu = document.getElementById('comp_flymenu_mobile');
+                if (flymenu.classList.contains("menu_flyin")){
+                    fly.toggle(); //開關
+                }
+            }
+        }, false);
+
+    })();
+}

@@ -22,6 +22,7 @@
     g.tls = new Tools();        // tool
     g.fly = new Flymenu();  //飛出菜單
     g.med = new MyMedia();  //媒體查詢
+    g.mth = new Mobile_touch(); //手機滑動監控
 
 })();
 
