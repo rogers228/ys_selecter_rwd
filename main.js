@@ -40,19 +40,23 @@ function test3(){
             switch(xhr.readyState){
             case 1://OPENED
                 console.log('state: OPENED');
+                tester.innerHTML = 'state: OPENED';
                 break;
             case 2://HEADERS_RECEIVED
                 console.log('state: HEADERS_RECEIVED');
+                tester.innerHTML = 'state: HEADERS_RECEIVED';
                 break;
             case 3://LOADING
                 console.log('state: LOADING');
+                tester.innerHTML = 'state: LOADING';
                 break;
             case 4://DONE
                 console.log('state: DONE');
+                tester.innerHTML = 'state: DONE';
                 break;
             }
         }
-        
+
         xhr.open('get',myurl, true);
         xhr.timeout = 5000; //毫秒
         xhr.send(null);
