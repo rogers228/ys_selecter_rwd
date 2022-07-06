@@ -1,24 +1,24 @@
-function test1(){
-    console.log('test1');
+// function test1(){
+//     console.log('test1');
 
-    let myurl = 'https://yshr.asuscomm.com:8239/';
-    console.log('myurl:'+myurl);
+//     let myurl = 'https://yshr.asuscomm.com:8239/';
+//     console.log('myurl:'+myurl);
 
-    let xhr = new XMLHttpRequest();
-        xhr.open('get',myurl, true);
-        xhr.send(null);
-        xhr.onload = function(){
-            if(xhr.status == 200){
-                // return JSON.parse(xhr.responseText);
-                let json_data = JSON.parse(xhr.responseText);
-                console.log(json_data)
-                alert(json_data['message']);
-            }
-            else{
-                console.log('error! myurl:'+ myurl);
-            }
-        }    
-}
+//     let xhr = new XMLHttpRequest();
+//         xhr.open('get',myurl, true);
+//         xhr.send(null);
+//         xhr.onload = function(){
+//             if(xhr.status == 200){
+//                 // return JSON.parse(xhr.responseText);
+//                 let json_data = JSON.parse(xhr.responseText);
+//                 console.log(json_data)
+//                 alert(json_data['message']);
+//             }
+//             else{
+//                 console.log('error! myurl:'+ myurl);
+//             }
+//         }    
+// }
 
 // function media_handle() {
 //     if (myMedia.matches) { // If media query matches
