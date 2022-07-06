@@ -130,13 +130,17 @@ function Mobile_touch(){  //Class
     }
 
     ;(function addevent(){
+
+        let flymenu = document.getElementById('comp_flymenu_mobile');
         //手指接觸螢幕
+        // flymenu.addEventListener("touchstart", function(e){
         document.addEventListener("touchstart", function(e){
             startx = e.touches[0].pageX;
             starty = e.touches[0].pageY;
         }, false);
 
         //手指離開螢幕
+        // flymenu.addEventListener("touchend", function(e) {
         document.addEventListener("touchend", function(e) {
             endx = e.changedTouches[0].pageX;
             endy = e.changedTouches[0].pageY;
