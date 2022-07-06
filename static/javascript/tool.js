@@ -156,3 +156,55 @@ function Mobile_touch(){  //Class
 
     })();
 }
+
+function FontendRouter(){  //Class
+    // function get_page(){
+    //     return {
+    //         'model': ''
+    //     }
+    // }
+    function get_param_obj(){
+        let obj = {};
+        let urlString = window.location.href;
+        if (urlString.indexOf('#') == -1){
+            return
+        }
+        let paramString = urlString.split('#')[1];
+        // console.log('paramString:', paramString);
+        let params_arr = paramString.split('&');
+        
+        for (let i = 0; i < params_arr.length; i++) {
+           let pair = params_arr[i].split('=');
+           obj[pair[0]] = pair[1];
+        }
+        return obj;
+    }
+
+    function router(){
+        //依照網址參數 將layout1排至最前方
+        let params = get_param_obj();
+        // console.log(params);
+        // console.log('123');
+        let walls = document.querySelectorAll('.layout1');
+        walls.forEach((node)=>{
+            let e = document.getElementById(node.id)
+            console.log(e);
+
+            let router = e.getAttribute('data-router');
+            console.log(router);
+
+            e.style['z-index'] = "300";
+            if (router == params['page']){
+                console.log('301');
+                e.style['z-index'] = "301";
+            }
+
+        });
+    }
+
+    ;(function addevent(){
+        window.addEventListener('hashchange', router);
+        window.addEventListener("DOMContentLoaded", router);
+    })();
+
+}

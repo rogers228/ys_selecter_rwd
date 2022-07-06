@@ -28,6 +28,7 @@ body {
     position: absolute;
     background-color: #F7D586;
     width:$main_width;
+    min-height: 100%;
 
     @include mobile{
       width:100%;
@@ -41,7 +42,7 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 }
 
 #layout1_1{
@@ -163,6 +164,7 @@ body {
 #comp_bottombar_mobile{
   display:none;
   position: fixed;
+  z-index: 380; //按鈕在 layout1 之上
   background-color: #178A7D;
   left: 0;
   bottom: 0;
@@ -184,6 +186,7 @@ body {
 #comp_flymenu_mobile{
   display: none;
   position: fixed;
+  z-index: 380; //按鈕在 layout1 之上
   background-color: #ff0066;
   left: 0;
   top: 0;  
