@@ -32,22 +32,25 @@
 
 function test2(){
     let myurl = 'https://yshr.asuscomm.com:8239/';
-    
+    let tester = document.getElementById('comp_tester');
     // console.log('myurl:'+myurl);
 
     let xhr = new XMLHttpRequest();
         xhr.open('get',myurl, true);
         xhr.send(null);
         xhr.onload = function(){
+            tester.innerHTML = 'xhr.onload';
             if(xhr.status == 200){
+                tester.innerHTML = '200';
                 // return JSON.parse(xhr.responseText);
                 let json_data = JSON.parse(xhr.responseText);
                 console.log(json_data)
                 // alert(json_data['message']);
-                document.getElementById('comp_tester').innerHTML = json_data['message'];
+                tester.innerHTML = json_data['message'];
             }
             else{
                 console.log('error! myurl:'+ myurl);
             }
-        }    
+        }
+    tester.innerHTML = 'ok';
 }
