@@ -30,12 +30,29 @@
     console.log('test run')
 })();
 
-function test2(){
+function test3(){
     let myurl = 'https://yshr.asuscomm.com:8239/';
     let tester = document.getElementById('comp_tester');
     // console.log('myurl:'+myurl);
 
     let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            switch(xhr.readyState){
+            case 1://OPENED
+                console.log('state: OPENED');
+                break;
+            case 2://HEADERS_RECEIVED
+                console.log('state: HEADERS_RECEIVED');
+                break;
+            case 3://LOADING
+                console.log('state: LOADING');
+                break;
+            case 4://DONE
+                console.log('state: DONE');
+                break;
+            }
+        }
+        
         xhr.open('get',myurl, true);
         xhr.timeout = 5000; //毫秒
         xhr.send(null);
@@ -53,10 +70,12 @@ function test2(){
                 console.log('error! myurl:'+ myurl);
             }
         }
-        xhr.ontimeout = function(){
-            console.log('XMLHttpRequest is timeout!');
-            tester.innerHTML = json_data['message'];
-        }
+
+
+    xhr.ontimeout = function(){
+        console.log('XMLHttpRequest is timeout!');
+        tester.innerHTML = json_data['message'];
+    }
 
     tester.innerHTML = 'ok';
 }
