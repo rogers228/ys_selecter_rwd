@@ -2,7 +2,7 @@ import sass
 
 def main():
     dir_sass = r'C:\Users\user\Documents\Rogers\ys_selecter_rwd\sass'
-    dir_css  = r'C:\Users\user\Documents\Rogers\ys_selecter_rwd'
+    dir_css  = r'C:\Users\user\Documents\Rogers\ys_selecter_rwd\static\css'
     '''
         將 dir_sass 資料夾當中的scss  編譯為css
         output_style option
