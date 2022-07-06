@@ -57,7 +57,7 @@ function test3(){
             }
         }
 
-        xhr.open('get',myurl, true);
+        xhr.open(method='get', url=myurl, async=true);
         xhr.timeout = 5000; //毫秒
         xhr.send(null);
         xhr.onload = function(){
@@ -82,4 +82,46 @@ function test3(){
     }
 
     tester.innerHTML = 'ok';
+}
+
+function test4(){
+    let tester = document.getElementById('comp_tester');
+    let xhr = new XMLHttpRequest();
+    xhr.open(method='get', url='https://yshr.asuscomm.com:8239/', async=true);
+
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 1){
+            return}
+        if (xhr.readyState == 4){
+            if (xhr.status < 400) {
+                // do your stuff here
+                let json_data = JSON.parse(xhr.responseText);
+                console.log(json_data)
+                tester.innerHTML = json_data['message'];
+            }
+            else if (error != null){
+                tester.innerHTML = 'error! myurl:'+ myurl;
+            }
+        }
+    }
+    xhr.send();
+    tester.innerHTML = 'ok';
+}
+
+function addItem(str) {
+    var request = new XMLHttpRequest();
+    request.open('GET', "checkinout-actions/add-more-items-code.php?q="+str);
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 1) { return }
+        else if (request.readyState == 4) {
+            if (request.status < 400) {
+                // do your stuff here
+                document.getElementById("txtHint").innerHTML=request.responseText;
+            }
+            else if (error != null)
+                error(request);
+        }
+    };
+    request.send();
 }
