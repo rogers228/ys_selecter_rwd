@@ -20,10 +20,10 @@
 
     // class
     g.tls = new Tools();        // tool
-    g.rtr = new FontendRouter(); //前端路由
+    g.rtr = new FontendRouterEvent(); //前端路由
     g.fly = new Flymenu();  //飛出菜單
     g.med = new MyMedia();  //媒體查詢
-    g.mth = new Mobile_touch(); //手機滑動監控
+    g.mth = new MobileTouchEvent(); //手機滑動監控
 
 })();
 
@@ -31,7 +31,6 @@
 ;(function(){ // main
     window.addEventListener("DOMContentLoaded", after_load_handler);
     function after_load_handler(){
-        
         return;
     }
 

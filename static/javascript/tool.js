@@ -96,17 +96,15 @@ class Flymenu{
     }
 }
 
-function Mobile_touch(){  //Class
-    let startx = 0;
-    let starty = 0;
-    let endx = 0;
-    let endy = 0;
+class MobileTouchFunc{  // window.mtf
+    constructor(){
+    }
 
-    function getAngle(angx, angy) { //獲得角度
+    getAngle(angx, angy) { //獲得角度
         return Math.atan2(angy, angx) * 180 / Math.PI;
     }
 
-    function getDirection(startx, starty, endx, endy) {
+    getDirection(startx, starty, endx, endy) {
         //根據起點終點返回方向 1向上滑動 2向下滑動 3向左滑動 4向右滑動 0點選事件
         let result = 0;
         let angx = endx - startx;
@@ -116,7 +114,7 @@ function Mobile_touch(){  //Class
             return result;
         }
 
-        let angle = getAngle(angx, angy);
+        let angle = mtf.getAngle(angx, angy);
         if (angle >= -135 && angle <= -45) {
             result = 1; //向上
         } else if (angle > 45 && angle < 135) {
@@ -128,24 +126,34 @@ function Mobile_touch(){  //Class
         }
         return result;
     }
+}
 
-    ;(function addevent(){
+class MobileTouchEvent{  // 手機滑動
+    constructor(){
+        this.addevent();
+    }
+    addevent(){
+        window.mtf = new MobileTouchFunc();
 
         let flymenu = document.getElementById('comp_flymenu_mobile');
         //手指接觸螢幕
-        // flymenu.addEventListener("touchstart", function(e){
-        document.addEventListener("touchstart", function(e){
-            startx = e.touches[0].pageX;
-            starty = e.touches[0].pageY;
-        }, false);
+
+        // flymenu.addEventListener("passive", function(e){
+        flymenu.addEventListener("touchstart", function(e){
+        // document.addEventListener("touchstart", function(e){
+            this.startx = e.touches[0].pageX;
+            this.starty = e.touches[0].pageY;
+        }, {passive: true});
 
         //手指離開螢幕
-        // flymenu.addEventListener("touchend", function(e) {
-        document.addEventListener("touchend", function(e) {
-            endx = e.changedTouches[0].pageX;
-            endy = e.changedTouches[0].pageY;
+        flymenu.addEventListener("touchend", function(e) {
+        // document.addEventListener("touchend", function(e) {
+            // console.log(e);
+            this.endx = e.changedTouches[0].pageX;
+            this.endy = e.changedTouches[0].pageY;
             // console.log(startx, starty, endx, endy);
-            let direction = getDirection(startx, starty, endx, endy);
+            // let direction = this.getDirection(startx, starty, endx, endy);
+            let direction = mtf.getDirection(this.startx, this.starty, this.endx, this.endy);
             if (direction ==3){ //向左
                 let flymenu = document.getElementById('comp_flymenu_mobile');
                 if (flymenu.classList.contains("menu_flyin")){
@@ -153,17 +161,13 @@ function Mobile_touch(){  //Class
                 }
             }
         }, false);
-
-    })();
+    }
 }
 
-function FontendRouter(){  //Class
-    // function get_page(){
-    //     return {
-    //         'model': ''
-    //     }
-    // }
-    function get_param_obj(){
+class FontendRouter{ // window.frr
+    constructor(){
+    }
+    get_param_obj(){
         let obj = {};
         let urlString = window.location.href;
         if (urlString.indexOf('#') == -1){
@@ -180,31 +184,38 @@ function FontendRouter(){  //Class
         return obj;
     }
 
-    function router(){
+    router(){
         //依照網址參數 將layout1排至最前方
-        let params = get_param_obj();
+        let params = frr.get_param_obj();
         // console.log(params);
         // console.log('123');
         let walls = document.querySelectorAll('.layout1');
         walls.forEach((node)=>{
             let e = document.getElementById(node.id)
-            console.log(e);
-
+            // console.log(e);
             let router = e.getAttribute('data-router');
-            console.log(router);
-
+            // console.log(router);
             e.style['z-index'] = "300";
             if (router == params['page']){
-                console.log('301');
+                // console.log('301');
                 e.style['z-index'] = "301";
             }
-
         });
     }
 
-    ;(function addevent(){
-        window.addEventListener('hashchange', router);
-        window.addEventListener("DOMContentLoaded", router);
-    })();
+    gotoHome(){
+        console.log("123")
+        window.location.href = '#page=home';
+    }
+}
 
+class FontendRouterEvent{ // 前端路由
+    constructor(){
+        this.addevent();
+    }
+    addevent(){
+        window.frr = new FontendRouter();
+        window.addEventListener('hashchange', frr.router);
+        window.addEventListener("DOMContentLoaded", frr.router);
+    }
 }
