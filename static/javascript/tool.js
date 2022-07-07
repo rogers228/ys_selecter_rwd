@@ -288,7 +288,7 @@ class Ajax_api{
 
         xhr.ontimeout = function(){
             console.log('XMLHttpRequest is timeout!');
-            rtr.goto_page('noconnect')
+            frr.goto_page('noconnect')
         }
     }
 }
