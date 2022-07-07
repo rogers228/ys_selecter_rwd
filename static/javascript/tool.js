@@ -73,25 +73,34 @@ class MyMedia{
 class Flymenu{
     constructor() {
         this.flymenu = document.getElementById('comp_flymenu_mobile');
+        this.mask = document.getElementById('comp_flymenu_mask');
     }
 
     toggle(){ //開關
+        // let z_index = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--data-zindex_mobile_bottombar'));
+
         let f = this.flymenu;
+        let m = this.mask;
         f.classList.remove( "menu_flyin", "menu_flyout"); //清除動畫
         if (f.style.visibility == "hidden" || f.style.visibility ==""){
             // open menu
             f.style.left = "0px";
             f.style.visibility = "visible";
             f.classList.add("menu_flyin"); //動畫 flyin
+            m.style['display'] = 'block'; //遮罩
+
+
         }
         else{
             // close menu
             f.addEventListener("animationend", function(){
                 if (f.classList.contains("menu_flyout")){
                     f.style.visibility = "hidden"; // 動畫完成後才隱藏
+                    m.style['display'] = 'none'; //遮罩
                 }
             });
             f.classList.add("menu_flyout"); //動畫 flyout
+            
         }
     }
 }
@@ -185,8 +194,12 @@ class FontendRouter{ // window.frr
     }
 
     router(){
+        // z_index 由 sass 控制
+        let z_index = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--data-zindex_layout1'));
+        // console.log(z_index);
+
         //依照網址參數 將layout1排至最前方
-        let params = frr.get_param_obj();
+        let params = frr.get_param_obj();  
         // console.log(params);
         // console.log('123');
         let walls = document.querySelectorAll('.layout1');
@@ -195,10 +208,10 @@ class FontendRouter{ // window.frr
             // console.log(e);
             let router = e.getAttribute('data-router');
             // console.log(router);
-            e.style['z-index'] = "300";
+            e.style['z-index'] = `${z_index}`;
             if (router == params['page']){
                 // console.log('301');
-                e.style['z-index'] = "301";
+                e.style['z-index'] = `${z_index + 2}`;
             }
         });
     }

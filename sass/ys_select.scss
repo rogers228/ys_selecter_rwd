@@ -1,7 +1,9 @@
 @import 'variable';
 
 :root{ 
-  --data-mobile_width: #{$mobile_width};
+  --data-mobile_width: #{$mobile_width};    // 轉為手機排版的寬度
+  --data-zindex_layout1: #{$zindex_layout1}; // layout1 預設z-index
+  --data-zindex_mobile_bottombar: #{$zindex_mobile_bottombar}; // layout1 預設z-index  
 }
 
 // mobile
@@ -57,6 +59,8 @@ body {
 #layout1_4{
   background-color: #BFFCC7;
 }
+
+
 
 #layout2_header{
   background-color: #ffbf00;
@@ -164,7 +168,7 @@ body {
 #comp_bottombar_mobile{
   display:none;
   position: fixed;
-  z-index: 380; //按鈕在 layout1 之上
+  z-index: $zindex_mobile_bottombar; //按鈕在 layout1 之上
   background-color: #178A7D;
   left: 0;
   bottom: 0;
@@ -186,7 +190,7 @@ body {
 #comp_flymenu_mobile{
   display: none;
   position: fixed;
-  z-index: 380; //按鈕在 layout1 之上
+  z-index: $zindex_mobile_bottombar; //按鈕在 layout1 之上
   background-color: #ff0066;
   left: 0;
   top: 0;  
@@ -198,6 +202,18 @@ body {
     // visibility: hidden;
     left: -300px;
   }    
+}
+
+#comp_flymenu_mask{
+  display: none;
+  position: fixed;
+  background-color: Black;
+  opacity: 0.75;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: $zindex_mobile_bottombar - 1;
 }
 
 .menu_visible{

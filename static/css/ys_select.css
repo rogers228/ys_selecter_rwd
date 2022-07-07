@@ -1,5 +1,7 @@
 :root {
   --data-mobile_width: 650px;
+  --data-zindex_layout1: 300;
+  --data-zindex_mobile_bottombar: 380;
 }
 
 body {
@@ -209,6 +211,18 @@ body {
     display: block;
     left: -300px;
   }
+}
+
+#comp_flymenu_mask {
+  display: none;
+  position: fixed;
+  background-color: Black;
+  opacity: 0.75;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 379;
 }
 
 .menu_visible {

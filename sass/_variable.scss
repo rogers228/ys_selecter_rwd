@@ -1,15 +1,24 @@
+﻿// $font-stack: Helvetica, sans-serif;
+// $primary-color: #333;
+
+// browser
 $main_width: 950px;
-$mobile_bottombar_height: 80px;
 $browser_sidebar_top: 250px;
-$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
-$color_body: #D7D7D7;
 
 // mobile
-$mobile_width: 650px;
+$mobile_width: 650px; //轉為手機排版的寬度
+$mobile_bottombar_height: 80px;
+
+// layout z-index
+$zindex_mobile_bottombar: 380;
+$zindex_layout1: 300;
+
+// color
+$color_body: #D7D7D7;
 
 $theme-colors: (
   'someColor': #000,
   'anotherColor': #FFF,
 );
+
 
