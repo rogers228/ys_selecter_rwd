@@ -1,37 +1,29 @@
-// global
-;(function(){
-    let g = window;
-
-    // fucntion
-        g.fmat = function(args){
-            // lile python format function
-            // args 
-            // foo = fmat('The lazy {0} {1} over the {2}', bar3, bar2, bar1); 
-            // console.log('foo:' + foo);
-            let num = arguments.length; 
-            let oStr = arguments[0];   
-            for (let i = 1; i < num; i++) { 
-                let pattern = "\\{" + (i-1) + "\\}"; 
-                let re = new RegExp(pattern, "g"); 
-                oStr = oStr.replace(re, arguments[i]); 
-            } 
-            return oStr;
-        }
-
-    // class
-    g.tls = new Tools();        // tool
-    g.rtr = new FontendRouterEvent(); //前端路由
-    g.fly = new Flymenu();  //飛出菜單
-    g.med = new MyMedia();  //媒體查詢
-    g.mth = new MobileTouchEvent(); //手機滑動監控
-
-})();
-
-
 ;(function(){ // main
-    window.addEventListener("DOMContentLoaded", after_load_handler);
+    let g = window;
+    g.addEventListener("DOMContentLoaded", after_load_handler);
+
+    // g.fmat = function(args){
+    //     // lile python format function
+    //     // args 
+    //     // foo = fmat('The lazy {0} {1} over the {2}', bar3, bar2, bar1); 
+    //     // console.log('foo:' + foo);
+    //     let num = arguments.length; 
+    //     let oStr = arguments[0];   
+    //     for (let i = 1; i < num; i++) { 
+    //         let pattern = "\\{" + (i-1) + "\\}"; 
+    //         let re = new RegExp(pattern, "g"); 
+    //         oStr = oStr.replace(re, arguments[i]); 
+    //     } 
+    //     return oStr;
+    // }
+
     function after_load_handler(){
-        return;
+        g.tls = new Tools();        // tool
+        g.ajx = new Ajax_api();
+        g.rtr = new FontendRouterEvent(); //前端路由
+        g.fly = new Flymenu();  //飛出菜單
+        g.med = new MyMedia();  //媒體查詢
+        g.mth = new MobileTouchEvent(); //手機滑動監控
     }
 
 })();
@@ -93,6 +85,7 @@ function test3(){
 function test4(){
     let tester = document.getElementById('comp_tester');
     let xhr = new XMLHttpRequest();
+    console.log(xhr)
     xhr.open(method='get', url='https://yshr.asuscomm.com:8239/', async=true);
 
     xhr.onreadystatechange = function(){

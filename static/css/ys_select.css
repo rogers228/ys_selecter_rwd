@@ -54,6 +54,10 @@ body {
   background-color: #BFFCC7;
 }
 
+#layout1_5 {
+  background-color: red;
+}
+
 #layout2_header {
   background-color: #ffbf00;
   min-height: 100px;
@@ -191,6 +195,8 @@ body {
 
 #comp_bottombar_mobile .btnm {
   background-color: #53ff1a;
+  cursor: pointer;
+  user-select: none;
   width: 25%;
   margin: 2px;
 }

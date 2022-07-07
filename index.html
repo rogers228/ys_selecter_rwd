@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="static/css/ys_select.css"/>
 <!--     <script src="static/javascript/tool.js"></script>
     <script src="static/javascript/main.js"></script> -->
+    <script src="static/javascript/tool.js"></script>
+    <script src="static/javascript/main.js"></script>
 </head>
 <body>
   <div id="layout0a">
@@ -31,10 +33,11 @@
         </div>
         <div id="layout2_footer">layout2_footer</div>
       </div>
-      <div id="layout1_2" class="layout1" data-router="home">layout1_2</div>
+      
       <div id="layout1_3" class="layout1" data-router="about">layout1_3</div>
       <div id="layout1_4" class="layout1" data-router="prodect">layout1_4</div>
-
+      <div id="layout1_5" class="layout1" data-router="noconnect">無法連接資料</div>
+      <div id="layout1_2" class="layout1" data-router="home">layout1_2</div>
 
     </div>
 
@@ -47,15 +50,15 @@
   
   <div id="comp_bottombar_mobile">
     <div id="btnm_1" class="btnm" onclick="fly.toggle()">menu</div>
-    <div id="btnm_2" class="btnm" onclick="test4()">test ajax</div>
-    <div id="btnm_3" class="btnm"><a href="#page=model">model</a></div>
+    <div id="btnm_2" class="btnm" onclick="ajx.get_state()">test ajax</div>
+    <div id="btnm_3" class="btnm" onclick="frr.goto_page('noconnect')">model</div>
     <div id="btnm_4" class="btnm"><a href="#page=home">home</a></div>
   </div>
   <div id="comp_flymenu_mask">mask</div>
   <div id="comp_flymenu_mobile">comp_flymenu_mobile</div>
   <button onclick="rtr.get_param_obj()">test</button>
 
-  <script src="static/javascript/tool.js"></script>
-  <script src="static/javascript/main.js"></script>
+  
+  <!-- <script src="static/javascript/main.js"></script> -->
 </body>
 </html>

@@ -1,12 +1,30 @@
 class Tools{
     constructor() {
+        this.set_global_func(); // global function
     }
+
+    // global function
+    set_global_func(){
+        window.fmat = function(args){
+            // lile python format function
+            // args 
+            // foo = fmat('The lazy {0} {1} over the {2}', bar3, bar2, bar1); 
+            // console.log('foo:' + foo);
+            let num = arguments.length; 
+            let oStr = arguments[0];   
+            for (let i = 1; i < num; i++) { 
+                let pattern = "\\{" + (i-1) + "\\}"; 
+                let re = new RegExp(pattern, "g"); 
+                oStr = oStr.replace(re, arguments[i]); 
+            } 
+            return oStr;
+        }
+    }
+
     // -----cookie tool function-----
     cookie_set(key, myvalue){
         document.cookie = `${key}=${myvalue}`;
     }
-
-
 
     cookie_get(name) {
         const myvalue = `; ${document.cookie}`;
@@ -67,7 +85,6 @@ class MyMedia{
             console.log('browser');
         }
     }
-
 }
 
 class Flymenu{
@@ -220,6 +237,10 @@ class FontendRouter{ // window.frr
         console.log("123")
         window.location.href = '#page=home';
     }
+
+    goto_page(mypage){
+        window.location.href = '#page='+mypage;
+    }
 }
 
 class FontendRouterEvent{ // 前端路由
@@ -230,5 +251,38 @@ class FontendRouterEvent{ // 前端路由
         window.frr = new FontendRouter();
         window.addEventListener('hashchange', frr.router);
         window.addEventListener("DOMContentLoaded", frr.router);
+    }
+}
+
+class Ajax_api{
+    constructor(){
+        this.xhr = new XMLHttpRequest();
+    }
+    endpoint(){
+        return 'aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5';
+    }
+
+    get_state(){
+        let router = 'L2NoZWNrYXBp'
+        let xhr = this.xhr;
+        xhr.open('GET', atob(this.endpoint()+router), true);
+        xhr.timeout = 5000; //毫秒
+        xhr.send(null);
+        xhr.onload = function(){
+            if(xhr.status == 200){
+                // return JSON.parse(xhr.responseText);
+                let json_data = JSON.parse(xhr.responseText);
+                console.log(json_data)
+            }
+            else{
+                console.log('error');
+                console.log(json_data);
+            }
+        }
+
+        xhr.ontimeout = function(){
+            console.log('XMLHttpRequest is timeout!');
+            rtr.goto_page('noconnect')
+        }
     }
 }

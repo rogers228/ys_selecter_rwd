@@ -59,7 +59,9 @@ body {
 #layout1_4{
   background-color: #BFFCC7;
 }
-
+#layout1_5{
+  background-color: red;
+}
 
 
 #layout2_header{
@@ -182,6 +184,8 @@ body {
 
   .btnm{
     background-color: #53ff1a;
+    cursor: pointer;
+    user-select: none;
     width: 25%;
     margin: 2px;
   }
