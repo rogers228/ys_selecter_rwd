@@ -291,4 +291,9 @@ class Ajax_api{
             frr.goto_page('noconnect')
         }
     }
+
+    open_connect(){
+        window.open(atob('aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5L2Nvbm5lY3Q='), '_blank');
+    }
+    
 }
