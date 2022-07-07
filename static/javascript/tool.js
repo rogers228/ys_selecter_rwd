@@ -263,6 +263,8 @@ class Ajax_api{
     }
 
     get_state(){
+        let tester = document.getElementById('comp_tester');
+
         let router = 'L2NoZWNrYXBp'
         let xhr = this.xhr;
         xhr.open('GET', atob(this.endpoint()+router), true);
@@ -273,10 +275,14 @@ class Ajax_api{
                 // return JSON.parse(xhr.responseText);
                 let json_data = JSON.parse(xhr.responseText);
                 console.log(json_data)
+                frr.goto_page('model');
+                tester.innerHTML = json_data['state'];
             }
             else{
                 console.log('error');
                 console.log(json_data);
+                frr.goto_page('model');
+                tester.innerHTML = json_data['state'];
             }
         }
 
