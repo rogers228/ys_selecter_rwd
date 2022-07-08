@@ -125,17 +125,15 @@ body {
     }
 
     #comp_nvabar{
+      display: flex;
+      flex-direction: row; //主軸方向 水平
+      justify-content: flex-start; //主軸對齊 flex-start | flex-end | center | space-between | space-around;      
       background-color: #b3b300;
       width: 100%;
       @include mobile{
         display:none;
       }
     }
-    #comp_selecter{
-      background-color: yellow;
-      width: 100%;
-
-    }    
   }
 }
 #layout2_footer{
@@ -146,6 +144,27 @@ body {
     display:none;
   }
 }
+
+.nva_btn{
+  .icon_a{
+    width: 16px; height: 16px;
+    filter: invert(99%) sepia(91%) saturate(0%) hue-rotate(113deg) brightness(113%) contrast(101%); //圖示顏色
+  }
+}
+
+
+.layout4{
+  position: absolute;
+  width: 200px;
+  }
+
+#layout4_selecter{
+  background-color: yellow;
+  
+}
+#layout4_about{
+  background-color: #ccccff;
+}        
 
 
 #layout_sidebar_browser{

@@ -217,12 +217,12 @@ class FontendRouter{ // window.frr
 
         //依照網址參數 將layout1排至最前方
         let params = frr.get_param_obj();  
-        // console.log(params);
-        // console.log('123');
+        console.log(params);
+
+        //page
         let walls = document.querySelectorAll('.layout1');
         walls.forEach((node)=>{
             let e = document.getElementById(node.id)
-            // console.log(e);
             let router = e.getAttribute('data-router');
             // console.log(router);
             e.style['z-index'] = `${z_index}`;
@@ -231,11 +231,20 @@ class FontendRouter{ // window.frr
                 e.style['z-index'] = `${z_index + 2}`;
             }
         });
-    }
 
-    gotoHome(){
-        console.log("123")
-        window.location.href = '#page=home';
+        //stage
+        console.log('stage45');
+        let stages = document.querySelectorAll('.layout4');
+        console.log(stages);
+        stages.forEach((node)=>{
+            let e = document.getElementById(node.id)
+            let router = e.getAttribute('data-router');
+            e.style['z-index'] = 320;
+            if (router == params['stage']){
+                // console.log('322');
+                e.style['z-index'] = 322;
+            }
+        });
     }
 
     goto_page(mypage){

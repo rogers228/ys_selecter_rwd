@@ -9,7 +9,7 @@ def main():
         nested 嵌套的
         expanded 展開
         compact 袖珍的
-        compressed 壓縮的width: 100%;
+        compressed 壓縮的width: 100%;stage
         '''
     sass.compile(dirname=(dir_sass, dir_css), output_style='expanded') # 編譯
 

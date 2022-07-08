@@ -26,22 +26,35 @@
           </div>
 
           <div id="layout3_main">
-            <div id="comp_nvabar">comp_nvabarcomp_nvabarcomp_nvabarcomp_nvabarcomp_n</div>
-            <div id="comp_selecter">comp_selecter</div>
-            <div id="comp_tester">test</div>
+            <div id="comp_nvabar">
+              <div id="nva_btn_1" class="nva_btn" onclick="">
+                  <img alt="home" src="static/svg/home.svg" class="icon_a"/>
+                  <span id="topnav_about"><a href="#page=model&stage=about">About</a></span >
+              </div>
+              <div id="nva_btn_2" class="nva_btn" onclick="">
+                  <img alt="product" src="static/svg/product.svg" class="icon_a"/>
+                  <span id="topnav_product"><a href="#page=model&stage=selecter">Product</a></span >
+              </div>
+            </div>
+            <div id="layout4_selecter" class="layout4" data-router="selecter">comp_selecter</div>
+            <div id="layout4_about" class="layout4" data-router="about">test</div>
           </div>
         </div>
         <div id="layout2_footer">layout2_footer</div>
       </div>
       
-      <div id="layout1_3" class="layout1" data-router="about">layout1_3</div>
-      <div id="layout1_4" class="layout1" data-router="prodect">layout1_4</div>
+      <div id="layout1_3" class="layout1" data-router="option">layout1_3</div>
+      <div id="layout1_4" class="layout1" data-router="other">layout1_4</div>
       <div id="layout1_5" class="layout1" data-router="noconnect">
         無法連接資料
         <p>
         <button onclick="cnn.open_connect()">連接資料</button>
       </div>
-      <div id="layout1_2" class="layout1" data-router="home">layout1_2</div>
+      <div id="layout1_2" class="layout1" data-router="home">
+        <div id="app">
+          {{ message }}
+        </div>
+      </div>
 
     </div>
 
@@ -66,7 +79,6 @@
 
   </div>
   <button onclick="rtr.get_param_obj()">test</button>
-  
-  <!-- <script src="static/javascript/main.js"></script> -->
+
 </body>
 </html>

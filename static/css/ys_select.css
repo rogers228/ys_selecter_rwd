@@ -127,6 +127,9 @@ body {
 }
 
 #layout2_center #layout3_main #comp_nvabar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   background-color: #b3b300;
   width: 100%;
 }
@@ -135,11 +138,6 @@ body {
   #layout2_center #layout3_main #comp_nvabar {
     display: none;
   }
-}
-
-#layout2_center #layout3_main #comp_selecter {
-  background-color: yellow;
-  width: 100%;
 }
 
 #layout2_footer {
@@ -151,6 +149,25 @@ body {
   #layout2_footer {
     display: none;
   }
+}
+
+.nva_btn .icon_a {
+  width: 16px;
+  height: 16px;
+  filter: invert(99%) sepia(91%) saturate(0%) hue-rotate(113deg) brightness(113%) contrast(101%);
+}
+
+.layout4 {
+  position: absolute;
+  width: 200px;
+}
+
+#layout4_selecter {
+  background-color: yellow;
+}
+
+#layout4_about {
+  background-color: #ccccff;
 }
 
 #layout_sidebar_browser {
