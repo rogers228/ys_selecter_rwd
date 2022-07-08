@@ -293,7 +293,9 @@ class Ajax_api{
     }
 
     open_connect(){
-        window.open(atob('aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5L2Nvbm5lY3Q='), '_blank');
+        // window.open(atob('aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5L2Nvbm5lY3Q='), '_blank');
+        console.log(window.location.origin);
+        // window.location.href = atob('aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5L2Nvbm5lY3Q=';
     }
     
 }
