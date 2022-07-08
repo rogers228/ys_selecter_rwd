@@ -254,48 +254,50 @@ class FontendRouterEvent{ // 前端路由
     }
 }
 
-class Ajax_api{
+class Connect{
     constructor(){
         this.xhr = new XMLHttpRequest();
+        // this.gst = {
+        //     'conn_state' : 0
+        // };
+        this.test_connect() //測試能否連線 endpoint
     }
     endpoint(){
         return 'aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5';
     }
 
-    get_state(){
-        let tester = document.getElementById('comp_tester');
+    test_connect(){ //測試能否連線 endpoint
+        // let tester = document.getElementById('comp_tester');
 
         let router = 'L2NoZWNrYXBp'
         let xhr = this.xhr;
         xhr.open('GET', atob(this.endpoint()+router), true);
-        xhr.timeout = 5000; //毫秒
+        xhr.timeout = 3000; //毫秒
         xhr.send(null);
+
         xhr.onload = function(){
             if(xhr.status == 200){
-                // return JSON.parse(xhr.responseText);
+                // this.gst('conn_state') = 1
                 let json_data = JSON.parse(xhr.responseText);
                 console.log(json_data)
-                frr.goto_page('model');
-                tester.innerHTML = json_data['state'];
             }
             else{
                 console.log('error');
-                console.log(json_data);
-                frr.goto_page('model');
-                tester.innerHTML = json_data['state'];
+                frr.goto_page('noconnect'); //無法連線 先引導到 連接頁面
             }
         }
 
         xhr.ontimeout = function(){
             console.log('XMLHttpRequest is timeout!');
-            frr.goto_page('noconnect')
+            frr.goto_page('noconnect'); //無法連線 先引導到 連接頁面
         }
     }
 
-    open_connect(){
-        // window.open(atob('aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5L2Nvbm5lY3Q='), '_blank');
-        console.log(window.location.origin);
-        // window.location.href = atob('aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5L2Nvbm5lY3Q=';
+    open_connect(){ // 連接 endpoint
+        let url = fmat('{0}/connect?url={1}',
+            atob(this.endpoint()), window.location.origin);
+        // console.log(url);
+        window.location.href = url;
     }
     
 }

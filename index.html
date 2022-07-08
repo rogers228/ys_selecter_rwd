@@ -39,7 +39,7 @@
       <div id="layout1_5" class="layout1" data-router="noconnect">
         無法連接資料
         <p>
-        <button onclick="ajx.open_connect()">連接資料</button>
+        <button onclick="cnn.open_connect()">連接資料</button>
       </div>
       <div id="layout1_2" class="layout1" data-router="home">layout1_2</div>
 
@@ -54,9 +54,9 @@
   
   <div id="comp_bottombar_mobile">
     <div id="btnm_1" class="btnm" onclick="fly.toggle()">menu</div>
-    <div id="btnm_2" class="btnm" onclick="ajx.get_state()">test ajax</div>
+    <div id="btnm_2" class="btnm" onclick="frr.goto_page('model')">model</div>
     <div id="btnm_3" class="btnm" onclick="frr.goto_page('noconnect')">noconnect</div>
-    <div id="btnm_4" class="btnm"><a href="#page=home">home</a></div>
+    <div id="btnm_4" class="btnm" onclick="frr.goto_page('home')">home</div>
   </div>
   <div id="comp_flymenu_mask">mask</div>
   <div id="comp_flymenu_mobile">

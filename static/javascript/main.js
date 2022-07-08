@@ -19,8 +19,8 @@
 
     function after_load_handler(){
         g.tls = new Tools();        // tool
-        g.ajx = new Ajax_api();
         g.rtr = new FontendRouterEvent(); //前端路由
+        g.cnn = new Connect();
         g.fly = new Flymenu();  //飛出菜單
         g.med = new MyMedia();  //媒體查詢
         g.mth = new MobileTouchEvent(); //手機滑動監控
