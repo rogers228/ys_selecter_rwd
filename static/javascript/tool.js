@@ -295,7 +295,8 @@ class Connect{
 
     open_connect(){ // 連接 endpoint
         let url = fmat('{0}/connect?url={1}',
-            atob(this.endpoint()), window.location.origin);
+            atob(this.endpoint()),
+            window.location.origin+window.location.pathname);
         // console.log(url);
         window.location.href = url;
     }
