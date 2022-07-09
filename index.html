@@ -30,17 +30,27 @@
               <div id="comp_nvabar">
                 <div id="nva_btn_1" class="nva_btn" onclick="">
                     <img alt="home" src="static/svg/home.svg" class="icon_a"/>
-                    <span id="topnav_about"><a href="#page=model&stage=about">About</a></span >
+                    <a id="nbtn_home" href="#page=model&stage=home">Home</a>
+                </div>
+                <div id="nva_btn_2" class="nva_btn" onclick="">
+                    <img alt="selecter" src="static/svg/product.svg" class="icon_a"/>
+                    <a id="nbtn_selecter" href="#page=model&stage=selecter">Selecter</a>
                 </div>
                 <div id="nva_btn_2" class="nva_btn" onclick="">
                     <img alt="product" src="static/svg/product.svg" class="icon_a"/>
-                    <span id="topnav_product"><a href="#page=model&stage=selecter">Product</a></span >
+                    <a id="nbtn_product" href="#page=model&stage=product">Product</a>
+                </div>
+                <div id="nva_btn_3" class="nva_btn" onclick="">
+                    <img alt="home" src="static/svg/home.svg" class="icon_a"/>
+                    <a id="nbtn_product" href="#page=model&stage=about">About</a>
                 </div>
               </div>
             </div>
             <div id ="layout3b_middle">
-              <div id="layout4_selecter" class="layout4" data-router="selecter">comp_selecter</div>
-              <div id="layout4_about" class="layout4" data-router="about">test</div>
+              <div id="layout4_selecter" class="layout4" data-router="selecter">selecter</div>
+              <div id="layout4_home" class="layout4" data-router="home">home</div>
+              <div id="layout4_product" class="layout4" data-router="product">product</div>
+              <div id="layout4_about" class="layout4" data-router="about">about</div>
             </div>
           </div>
         </div>

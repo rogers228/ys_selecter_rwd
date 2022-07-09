@@ -145,12 +145,20 @@ body {
   min-height: 100%;
 }
 
+#layout4_home {
+  background-color: #b3daff;
+}
+
 #layout4_selecter {
   background-color: yellow;
 }
 
 #layout4_about {
   background-color: #ccccff;
+}
+
+#layout4_product {
+  background-color: #339966;
 }
 
 /*----------userbar_browser----------*/
@@ -212,10 +220,32 @@ body {
   }
 }
 
+.nva_btn {
+  position: relative;
+  padding: 5px 10px;
+  min-width: 60px;
+}
+
 .nva_btn .icon_a {
   width: 16px;
   height: 16px;
   filter: invert(99%) sepia(91%) saturate(0%) hue-rotate(113deg) brightness(113%) contrast(101%);
+}
+
+.nva_btn a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 30px;
+  padding-top: 0.3em;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  text-decoration: none;
+}
+
+.nva_btn a:hover {
+  text-decoration: underline;
 }
 
 /*----------bottombar_mobile----------*/
@@ -276,7 +306,7 @@ body {
   min-height: 100%;
   z-index: 379;
   animation-name: maskin;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 .menu_visible {

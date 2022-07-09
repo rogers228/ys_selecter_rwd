@@ -70,16 +70,24 @@ class Tools{
     }
 }
 
-class MyMedia{
+class MyMediaFunc{
     constructor() {
-        //"(max-width: 750px)"
-        this.mda = `(max-width: ${getComputedStyle(document.documentElement)
-                            .getPropertyValue('--data-mobile_width')})`
-        this.media_handle(); // Call listener function at run time
     }
+    media_rule(){
+        return `(max-width: ${getComputedStyle(document.documentElement)
+                            .getPropertyValue('--data-mobile_width')})`
+    }
+}
 
-    media_handle() {
-        if (window.matchMedia(this.mda).matches) { // If media query matches
+class MyMediaEvent{
+    constructor(){
+        this.addevent();
+    }
+    addevent() {
+        window.mmf = new MyMediaFunc();
+
+        //reload event 待添加
+        if (window.matchMedia(mmf.media_rule()).matches) {
             console.log('mobile');
         } else {
             console.log('browser');
@@ -222,7 +230,7 @@ class FontendRouter{ // window.frr
 
         //依照網址參數 將layout1排至最前方
         let params = frr.get_param_obj();  
-        console.log(params);
+        // console.log(params);
 
         //page
         let walls = document.querySelectorAll('.layout1');
@@ -238,9 +246,8 @@ class FontendRouter{ // window.frr
         });
 
         //stage
-        console.log('stage45');
         let stages = document.querySelectorAll('.layout4');
-        console.log(stages);
+        // console.log(stages);
         stages.forEach((node)=>{
             let e = document.getElementById(node.id)
             let router = e.getAttribute('data-router');
