@@ -1,0 +1,28 @@
+/*----------layout2----------*/
+
+#layout2_header{
+  background-color: #ffbf00;
+  min-height: 100px;
+
+  @include mobile{
+    display:none;
+  }
+}
+
+#layout2_center{
+  background-color: #ccffcc;
+  display: flex;
+  flex-direction: row; //主軸方向 水平
+  justify-content: flex-start; //主軸對齊 flex-start | flex-end | center | space-between | space-around;
+  align-items: stretch; //次軸對齊 flex-start | flex-end | center | baseline | stretch;
+  min-height: 150px;
+}
+
+#layout2_footer{
+  background-color: #4d4d4d;
+  min-height: 100px;
+
+  @include mobile{
+    display:none;
+  }
+}

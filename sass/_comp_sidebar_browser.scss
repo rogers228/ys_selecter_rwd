@@ -1,0 +1,19 @@
+/*----------sidebar_browser----------*/
+#layout_sidebar_browser{
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  height: 100%;
+  
+  @include mobile{
+    display:none;
+  }
+
+  #comp_sidebar_browser{
+    background-color: #53ff1a;
+    width: 36px;
+    height: 120px;
+    margin-top: $browser_sidebar_top;
+  }
+}

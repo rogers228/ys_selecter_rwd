@@ -105,7 +105,7 @@ class Flymenu{
             f.style.visibility = "visible";
             f.classList.add("menu_flyin"); //動畫 flyin
             m.style['display'] = 'block'; //遮罩
-
+            m.style['animation-name'] = 'maskin'; //動畫maskin
 
         }
         else{
@@ -117,6 +117,7 @@ class Flymenu{
                 }
             });
             f.classList.add("menu_flyout"); //動畫 flyout
+            m.style['animation-name'] = 'maskout'; //動畫maskout
             
         }
     }

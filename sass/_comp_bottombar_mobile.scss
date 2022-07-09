@@ -1,0 +1,24 @@
+/*----------bottombar_mobile----------*/
+#comp_bottombar_mobile{
+  display:none;
+  position: fixed;
+  z-index: $zindex_mobile_bottombar; //按鈕在 layout1 之上
+  background-color: #178A7D;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: $mobile_bottombar_height;
+  @include mobile{
+    display: flex;
+    flex-direction: row; //主軸方向 水平
+    justify-content: space-around; //主軸對齊 flex-start | flex-end | center | space-between | space-around;    
+  }
+
+  .btnm{
+    background-color: #53ff1a;
+    cursor: pointer;
+    user-select: none;
+    width: 25%;
+    margin: 2px;
+  }
+}

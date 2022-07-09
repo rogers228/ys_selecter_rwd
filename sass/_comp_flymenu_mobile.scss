@@ -1,0 +1,64 @@
+/*----------flymenu_mobile----------*/
+#comp_flymenu_mobile{
+  display: none;
+  position: fixed;
+  z-index: $zindex_mobile_bottombar; //按鈕在 layout1 之上
+  background-color: #ff0066;
+  left: 0;
+  top: 0;  
+  width: 300px;
+  height: calc(100% - #{$mobile_bottombar_height});
+
+  @include mobile{
+    display: block;
+    // visibility: hidden;
+    left: -300px;
+  }    
+}
+
+#comp_flymenu_mask{
+  display: none;
+  position: fixed;
+  background-color: Black;
+  opacity: 0.75;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: $zindex_mobile_bottombar - 1;
+  animation-name: maskin;
+  animation-duration: 2s;  
+}
+
+.menu_visible{
+  visibility: visible;
+  left: 0px;
+}
+
+.menu_flyin{
+  animation: flyin 0.3s ease-out;
+}
+
+.menu_flyout{
+  animation: flyout 0.4s ease-in;
+}
+
+@keyframes flyin {
+    from {left: -300px;}
+    to   {left: 0px;} 
+}
+
+@keyframes flyout {
+    from {left: 0px;}
+    to   {left: -300px;} 
+}
+
+@keyframes maskin {
+    from {opacity: 0;}
+    to   {opacity: 0.65;} 
+}
+
+@keyframes maskout {
+    from {opacity: 0.65;}
+    to   {opacity: 0;} 
+}

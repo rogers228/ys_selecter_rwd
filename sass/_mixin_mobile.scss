@@ -1,0 +1,6 @@
+// mobile
+@mixin mobile{
+  @media(max-width: $mobile_width){ //<= 750
+    @content;
+  }
+}

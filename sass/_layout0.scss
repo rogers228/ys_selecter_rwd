@@ -1,0 +1,27 @@
+/*----------layout0 & body----------*/
+
+body {
+  margin: 0;
+  background-color: $color_body;
+}
+
+#layout0a{
+  display: flex;
+  flex-direction: row; //主軸方向 水平
+  justify-content: center; //主軸對齊 flex-start | flex-end | center | space-between | space-around;
+  background-color: #DDFCF7;
+  min-height: 600px;
+  // height: 100%;
+
+  #layout0b{
+    position: absolute;
+    background-color: #F7D586;
+    width:$main_width;
+    min-height: 100%;
+
+    @include mobile{
+      width:100%;
+    }
+
+  }
+}

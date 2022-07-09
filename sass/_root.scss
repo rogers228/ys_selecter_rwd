@@ -1,0 +1,8 @@
+// 轉為css 變數 以供 javascript取用
+/*----------root----------*/
+
+:root{ 
+  --data-mobile_width: #{$mobile_width};    // 轉為手機排版的寬度
+  --data-zindex_layout1: #{$zindex_layout1}; // layout1 預設z-index
+  --data-zindex_mobile_bottombar: #{$zindex_mobile_bottombar}; // layout1 預設z-index  
+}
