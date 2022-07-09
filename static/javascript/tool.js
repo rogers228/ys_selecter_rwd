@@ -112,10 +112,14 @@ class Flymenu{
             // close menu
             f.addEventListener("animationend", function(){
                 if (f.classList.contains("menu_flyout")){
-                    f.style.visibility = "hidden"; // 動畫完成後才隱藏
-                    m.style['display'] = 'none'; //遮罩
+                    f.style['visibility'] = "hidden"; // 動畫完成後才隱藏
                 }
             });
+
+            m.addEventListener("animationend", function(){
+                m.style['display'] = 'none'; // 動畫完成後才隱藏
+            });
+
             f.classList.add("menu_flyout"); //動畫 flyout
             m.style['animation-name'] = 'maskout'; //動畫maskout
             

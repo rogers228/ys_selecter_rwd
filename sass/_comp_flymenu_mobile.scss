@@ -1,4 +1,6 @@
 /*----------flymenu_mobile----------*/
+$flymenu_mask_opacity: 0.6;
+
 #comp_flymenu_mobile{
   display: none;
   position: fixed;
@@ -20,14 +22,14 @@
   display: none;
   position: fixed;
   background-color: Black;
-  opacity: 0.75;
+  opacity: $flymenu_mask_opacity;
   left: 0;
   top: 0;
   min-width: 100%;
   min-height: 100%;
   z-index: $zindex_mobile_bottombar - 1;
   animation-name: maskin;
-  animation-duration: 2s;  
+  animation-duration: 1s;  
 }
 
 .menu_visible{
@@ -55,10 +57,10 @@
 
 @keyframes maskin {
     from {opacity: 0;}
-    to   {opacity: 0.65;} 
+    to   {opacity: $flymenu_mask_opacity;} 
 }
 
 @keyframes maskout {
-    from {opacity: 0.65;}
+    from {opacity: $flymenu_mask_opacity;}
     to   {opacity: 0;} 
 }

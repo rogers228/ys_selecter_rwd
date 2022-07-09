@@ -1,0 +1,20 @@
+/*----------userbar_browser----------*/
+
+#layout_userbar{
+  position: absolute;
+  display: flex;
+  flex-direction: row; //主軸方向 水平
+  justify-content: flex-end; //主軸對齊 flex-start | flex-end | center | space-between | space-around; 
+  background-color: transparent;
+  top:0;
+  width:100%;
+
+  @include mobile{
+    display:none;
+  }
+
+  #comp_userbar_browser{
+    background-color: #99cc00;
+    min-width: 450px;
+  }
+}

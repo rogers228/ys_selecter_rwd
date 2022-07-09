@@ -94,27 +94,6 @@ body {
 }
 
 /*----------layout3----------*/
-#layout3_userbar {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  background-color: transparent;
-  top: 0;
-  width: 100%;
-}
-
-@media (max-width: 650px) {
-  #layout3_userbar {
-    display: none;
-  }
-}
-
-#layout3_userbar #comp_userbar_browser {
-  background-color: #99cc00;
-  min-width: 450px;
-}
-
 #layout3_sider {
   background-color: #d0e1e1;
 }
@@ -138,21 +117,32 @@ body {
   }
 }
 
-#layout3_main {
+#layout3a_main {
   background-color: #ff9999;
   width: calc(950px - 300px);
 }
 
 @media (max-width: 650px) {
-  #layout3_main {
+  #layout3a_main {
     width: 100%;
   }
 }
 
+#layout3a_main #layout3b_top {
+  position: relative;
+}
+
+#layout3a_main #layout3b_middle {
+  position: relative;
+}
+
 /*----------layout4----------*/
 .layout4 {
-  position: static;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
+  min-height: 100%;
 }
 
 #layout4_selecter {
@@ -163,8 +153,30 @@ body {
   background-color: #ccccff;
 }
 
-/*----------sidebar_browser----------*/
-#layout_sidebar_browser {
+/*----------userbar_browser----------*/
+#layout_userbar {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: transparent;
+  top: 0;
+  width: 100%;
+}
+
+@media (max-width: 650px) {
+  #layout_userbar {
+    display: none;
+  }
+}
+
+#layout_userbar #comp_userbar_browser {
+  background-color: #99cc00;
+  min-width: 450px;
+}
+
+/*----------sidetoolbar_browser----------*/
+#layout_sidetoolbar_browser {
   position: fixed;
   right: 0;
   top: 0;
@@ -173,12 +185,12 @@ body {
 }
 
 @media (max-width: 650px) {
-  #layout_sidebar_browser {
+  #layout_sidetoolbar_browser {
     display: none;
   }
 }
 
-#layout_sidebar_browser #comp_sidebar_browser {
+#layout_sidetoolbar_browser #comp_sidetoolbar_browser {
   background-color: #53ff1a;
   width: 36px;
   height: 120px;
@@ -257,14 +269,14 @@ body {
   display: none;
   position: fixed;
   background-color: Black;
-  opacity: 0.75;
+  opacity: 0.6;
   left: 0;
   top: 0;
   min-width: 100%;
   min-height: 100%;
   z-index: 379;
   animation-name: maskin;
-  animation-duration: 2.5s;
+  animation-duration: 2s;
 }
 
 .menu_visible {
@@ -303,13 +315,13 @@ body {
     opacity: 0;
   }
   to {
-    opacity: 0.75;
+    opacity: 0.6;
   }
 }
 
 @keyframes maskout {
   from {
-    opacity: 0.75;
+    opacity: 0.6;
   }
   to {
     opacity: 0;

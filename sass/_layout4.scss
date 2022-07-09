@@ -1,8 +1,11 @@
 /*----------layout4----------*/
 
 .layout4{
-  position: static;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
+  min-height: 100%;
   }
 
 #layout4_selecter{
