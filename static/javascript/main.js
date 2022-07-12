@@ -21,6 +21,7 @@
         g.tls = new Tools();        // tool
         g.rtr = new FontendRouterEvent(); //前端路由
         g.cnn = new Connect();
+        g.tapi = new TestApi();
         g.fly = new Flymenu();  //飛出菜單
         g.med = new MyMediaEvent();  //媒體查詢
         g.mth = new MobileTouchEvent(); //手機滑動監控

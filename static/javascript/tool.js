@@ -262,6 +262,10 @@ class FontendRouter{ // window.frr
     goto_page(mypage){
         window.location.href = '#page='+mypage;
     }
+
+    goto_model(mystage){
+        window.location.href = '#page=model&stage='+mystage;
+    }
 }
 
 class FontendRouterEvent{ // 前端路由
@@ -293,6 +297,7 @@ class Connect{
         let router = 'L2NoZWNrYXBp'
         let xhr = this.xhr;
         xhr.open('GET', atob(this.endpoint()+router), true);
+        xhr.setRequestHeader('x-sid', 'test')
         xhr.timeout = 3000; //毫秒
         xhr.send(null);
 
@@ -318,8 +323,120 @@ class Connect{
         let url = fmat('{0}/connect?url={1}',
             atob(this.endpoint()),
             window.location.origin+window.location.pathname);
-        // console.log(url);
+        console.log(url);
         window.location.href = url;
     }
+
+
     
+}
+
+class TestApi{
+    constructor(){
+        this.xhr = new XMLHttpRequest();
+    }
+    endpoint(){
+        return 'aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5';
+    }
+
+    show_cookie(){
+        console.log(document.cookie);
+    }
+    test_mynameis(){
+        let myurl = atob(this.endpoint())+'/mynameis?name=allen'
+        console.log(myurl);
+
+        let xhr = this.xhr;
+        xhr.open('POST', myurl, true);
+        xhr.timeout = 3000; //毫秒
+        xhr.send(null);
+
+        xhr.onload = function(){
+            if(xhr.status == 200){
+                // this.gst('conn_state') = 1
+                let json_data = JSON.parse(xhr.responseText);
+                console.log(json_data)
+            }
+            else{
+                console.log('api error');
+            }
+        }
+
+        xhr.ontimeout = function(){
+            console.log('XMLHttpRequest is timeout!');
+        }
+    }
+
+    test_whoami(){
+        let myurl = atob(this.endpoint())+'/whoami'
+        console.log(myurl);
+
+        let xhr = this.xhr;
+        xhr.open('GET', myurl, true);
+        xhr.timeout = 3000; //毫秒
+        xhr.send(null);
+
+        xhr.onload = function(){
+            if(xhr.status == 200){
+                // this.gst('conn_state') = 1
+                let json_data = JSON.parse(xhr.responseText);
+                console.log(json_data)
+            }
+            else{
+                console.log('api error');
+            }
+        }
+
+        xhr.ontimeout = function(){
+            console.log('XMLHttpRequest is timeout!');
+        }
+    }
+    test_set(){
+        let myurl = atob(this.endpoint())+'/set'
+        console.log(myurl);
+
+        let xhr = this.xhr;
+        xhr.open('GET', myurl, true);
+        xhr.timeout = 3000; //毫秒
+        xhr.send(null);
+
+        xhr.onload = function(){
+            if(xhr.status == 200){
+                // this.gst('conn_state') = 1
+                let json_data = JSON.parse(xhr.responseText);
+                console.log(json_data)
+            }
+            else{
+                console.log('api error');
+            }
+        }
+
+        xhr.ontimeout = function(){
+            console.log('XMLHttpRequest is timeout!');
+        }
+    }
+    test_read(){
+        let myurl = atob(this.endpoint())+'/read'
+        console.log(myurl);
+
+        let xhr = this.xhr;
+        xhr.open('GET', myurl, true);
+        xhr.timeout = 3000; //毫秒
+        xhr.send(null);
+
+        xhr.onload = function(){
+            if(xhr.status == 200){
+                // this.gst('conn_state') = 1
+                let json_data = JSON.parse(xhr.responseText);
+                console.log(json_data)
+            }
+            else{
+                console.log('api error');
+            }
+        }
+
+        xhr.ontimeout = function(){
+            console.log('XMLHttpRequest is timeout!');
+        }
+    }    
 }
