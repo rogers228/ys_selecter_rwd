@@ -1,7 +1,7 @@
 ;(function(){ // main
     let g = window;
     g.addEventListener("DOMContentLoaded", after_load_handler);
-
+    g.acdic = {'name': 'allen'}
     // g.fmat = function(args){
     //     // lile python format function
     //     // args 

@@ -349,8 +349,8 @@ class TestApi{
 
         let xhr = new XMLHttpRequest();
         xhr.open('POST', myurl, true);
-        xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost');
-        xhr.withCredentials = true;
+        // xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost');
+        // xhr.withCredentials = true;
         xhr.timeout = 3000; //毫秒
         xhr.send(null);
 
@@ -376,8 +376,8 @@ class TestApi{
 
         let xhr = new XMLHttpRequest();
         xhr.open('GET', myurl, true);
-        xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost');
-        xhr.withCredentials = true;
+        // xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost');
+        // xhr.withCredentials = true;
         xhr.timeout = 3000; //毫秒
         xhr.send(null);
 
