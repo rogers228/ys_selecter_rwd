@@ -333,21 +333,24 @@ class Connect{
 
 class TestApi{
     constructor(){
-        this.xhr = new XMLHttpRequest();
+
     }
     endpoint(){
-        return 'aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5';
+        // return 'aHR0cHM6Ly95c2hyLmFzdXNjb21tLmNvbTo4MjM5';
+        return 'https://yshr.asuscomm.com:8239';
     }
 
     show_cookie(){
         console.log(document.cookie);
     }
     test_mynameis(){
-        let myurl = atob(this.endpoint())+'/mynameis?name=allen'
+        let myurl = this.endpoint()+'/mynameis?name=allen'
         console.log(myurl);
 
-        let xhr = this.xhr;
+        let xhr = new XMLHttpRequest();
         xhr.open('POST', myurl, true);
+        xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost');
+        xhr.withCredentials = true;
         xhr.timeout = 3000; //毫秒
         xhr.send(null);
 
@@ -368,11 +371,13 @@ class TestApi{
     }
 
     test_whoami(){
-        let myurl = atob(this.endpoint())+'/whoami'
+        let myurl = this.endpoint()+'/whoami'
         console.log(myurl);
 
-        let xhr = this.xhr;
+        let xhr = new XMLHttpRequest();
         xhr.open('GET', myurl, true);
+        xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost');
+        xhr.withCredentials = true;
         xhr.timeout = 3000; //毫秒
         xhr.send(null);
 
@@ -392,11 +397,13 @@ class TestApi{
         }
     }
     test_set(){
-        let myurl = atob(this.endpoint())+'/set'
+        let myurl = this.endpoint()+'/set'
         console.log(myurl);
 
-        let xhr = this.xhr;
+        let xhr = new XMLHttpRequest();
         xhr.open('GET', myurl, true);
+        xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost');
+        xhr.withCredentials = true;
         xhr.timeout = 3000; //毫秒
         xhr.send(null);
 
@@ -416,10 +423,10 @@ class TestApi{
         }
     }
     test_read(){
-        let myurl = atob(this.endpoint())+'/read'
+        let myurl = this.endpoint()+'/read'
         console.log(myurl);
 
-        let xhr = this.xhr;
+        let xhr = new XMLHttpRequest();
         xhr.open('GET', myurl, true);
         xhr.timeout = 3000; //毫秒
         xhr.send(null);
