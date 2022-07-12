@@ -1,21 +1,7 @@
 ;(function(){ // main
     let g = window;
+    g.appstate = {'name': 'allen'}
     g.addEventListener("DOMContentLoaded", after_load_handler);
-    g.acdic = {'name': 'allen'}
-    // g.fmat = function(args){
-    //     // lile python format function
-    //     // args 
-    //     // foo = fmat('The lazy {0} {1} over the {2}', bar3, bar2, bar1); 
-    //     // console.log('foo:' + foo);
-    //     let num = arguments.length; 
-    //     let oStr = arguments[0];   
-    //     for (let i = 1; i < num; i++) { 
-    //         let pattern = "\\{" + (i-1) + "\\}"; 
-    //         let re = new RegExp(pattern, "g"); 
-    //         oStr = oStr.replace(re, arguments[i]); 
-    //     } 
-    //     return oStr;
-    // }
 
     function after_load_handler(){
         g.tls = new Tools();        // tool
